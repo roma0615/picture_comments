@@ -1,0 +1,17 @@
+<h1>Editing Picture #<%= @picture.id %></h1>
+
+<form action="/pictures/<%= @picture.id %>/update">
+  <div>
+    <label for="url">url</label><br />
+    <input id="url" name="url" value="<%= @picture.url  %>" type="text" />
+  </div>
+  <div>
+    <label for="caption">caption</label><br />
+    <input id="caption" name="caption" value="<%= @picture.caption  %>" type="text" />
+  </div>
+  <div>
+    <input type="submit">
+  </div>
+</form>
+
+
