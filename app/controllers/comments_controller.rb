@@ -18,7 +18,7 @@ class CommentsController < ApplicationController
     @comment.body = params[:body]
 
     if @comment.save
-      redirect_to "/comments/#{ @comment.id }"
+      redirect_to "/pictures/#{ @comment.picture_id }"
     else
       render 'new'
     end

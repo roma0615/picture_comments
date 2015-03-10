@@ -9,4 +9,35 @@
 </div>
 
 <a href="/pictures/<%= @picture.id %>/edit">Edit</a> |
-<a href="/pictures/<%= @picture.id %>/destroy">Destroy</a>
+<a href="/pictures/<%= @picture.id %>/destroy">Destroy</a> |
+<a href="/pictures">Index</a>
+
+<h2>New Comment</h2>
+
+<form action="/create_comment">
+  <div>
+    <input id="picture_id" name="picture_id" value="<%= @picture.id %>" type="hidden" />
+  </div>
+  <div>
+    <label for="user">User</label><br />
+    <input id="user" name="user" type="text" />
+  </div>
+  <div>
+    <label for="body">Body</label><br />
+    <textarea id="body" name="body" placeholder="Your comment here" rows="10" cols="60"></textarea>
+  </div>
+  <div>
+    <input type="submit">
+  </div>
+</form>
+<h2>Comments</h2>
+<ul style="margin:0px;padding:10px;">
+  <% @comments.each do |comment| %>
+    <div style="border: dashed 2px black;border-radius: 20px;padding: 20px;width: 585px;margin-left:0px;">
+      <strong><%= comment.user %></strong> says:
+      <p style="margin-top:10px; padding:0px;">
+        <%= comment.body %>
+      </p>
+    </div>
+  <% end %>
+</ul>
